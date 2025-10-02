@@ -1,0 +1,18 @@
+# Node.js 相关
+node_modules/
+npm-debug.log
+
+# Vercel Analytics 生成的文件
+.vercel/
+
+# 编辑器相关
+.DS_Store
+.idea/
+.vscode/
+
+# 构建输出
+dist/
+build/
+
+.vercel
+
