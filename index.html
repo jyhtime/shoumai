@@ -73,7 +73,36 @@
             color: #667eea;
             font-size: 28px;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .domain-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 20px 30px;
+            margin: 20px auto;
+            max-width: fit-content;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .domain-text {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            word-break: break-all;
         }
 
         .description {
@@ -166,6 +195,10 @@
             .contact-value {
                 font-size: 16px;
             }
+
+            .domain-text {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
@@ -175,6 +208,9 @@
             <div class="icon">🌐</div>
             <h1>域名出售</h1>
             <div class="subtitle">Domain For Sale</div>
+            <div class="domain-display" id="domainDisplay">
+                <span class="domain-text"></span>
+            </div>
             <p class="description">本域名正在寻找新的所有者，如有兴趣请联系我们</p>
             <p class="description">This domain is looking for a new owner. Contact us if interested</p>
         </div>
@@ -207,5 +243,20 @@
             <p>🤝 期待与您的合作 | Looking forward to working with you</p>
         </div>
     </div>
+
+    <script>
+        // 获取并显示当前域名
+        window.addEventListener('DOMContentLoaded', function() {
+            const domainText = document.querySelector('.domain-text');
+            const currentDomain = window.location.hostname;
+            
+            // 如果是本地环境，显示完整的 URL
+            if (currentDomain === 'localhost' || currentDomain === '127.0.0.1' || currentDomain === '') {
+                domainText.textContent = window.location.href;
+            } else {
+                domainText.textContent = currentDomain;
+            }
+        });
+    </script>
 </body>
 </html>
